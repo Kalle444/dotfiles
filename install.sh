@@ -4,3 +4,5 @@ echo "Working directory" $working_dir
 
 echo "Installing bash_profile"
 ln -sv $working_dir/bash_profile ~/.bash_profile
+echo "Installing gitconfig"
+ln -sv $working_dir/gitconfig ~/.gitconfig
