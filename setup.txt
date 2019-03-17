@@ -1,0 +1,14 @@
+### Sources for set-up of a new computer:
+
+#### Use the step guideline from Le Wagon
+for newbies:
+https://github.com/lewagon/setup/blob/master/macOS.md
+
+if you have some experience:
+https://github.com/lewagon/setup/blob/master/second-setup/OSX.md
+
+#### Read up on how to setup ssh keygen
+https://www.ssh.com/ssh/keygen/#sec-SSH-Keys-and-Public-Key-Authentication
+
+#### If deciding to use `oh my zsh`
+https://ohmyz.sh/
