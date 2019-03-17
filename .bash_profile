@@ -7,10 +7,15 @@ export PS1="\[\033[32m\]\w\[\033[33m\][\$(rbenv version-name)]\$(parse_git_branc
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 
+export LANG="en_US.UTF-8"
+
 export EDITOR="/Applications/Atom.app/Contents/MacOS/Atom -nw"
 
 alias be="bundle exec"
 
+
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+[ -f $PWD/code/dotfiles/.bash_profile.local ] && source $PWD/code/dotfiles/.bash_profile.local
