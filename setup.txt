@@ -12,3 +12,6 @@ https://www.ssh.com/ssh/keygen/#sec-SSH-Keys-and-Public-Key-Authentication
 
 #### If deciding to use `oh my zsh`
 https://ohmyz.sh/
+
+#### For dotfiles inspiration
+https://github.com/ajmalsiddiqui/dotfiles
