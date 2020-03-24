@@ -15,3 +15,6 @@ ln -sv $working_dir/.gitconfig ~/.gitconfig
 echo "Installing irbrc"
 ! [ -f ~/.irb-history ] && touch ~/.irb-history
 ln -sv $working_dir/.irbrc ~/.irbrc
+echo "Installing zshenv"
+ln -sv $working_dir/.zshenv ~/.zshenv
+

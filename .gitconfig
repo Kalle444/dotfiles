@@ -15,7 +15,9 @@
 
 [core]
   pager = less -FRSX
-	editor = atom --wait
+	editor = vim
+
+
 
 [alias]
   co = checkout

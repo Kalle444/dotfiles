@@ -1,7 +1,7 @@
 # From oh my zsh installing
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/u0157689/.oh-my-zsh"
@@ -111,11 +111,12 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # Actually load Oh-My-Zsh
 # source "${ZSH}/oh-my-zsh.sh"
-unalias rm # No interactive rm by default (brought by plugins/common-aliases)
+# unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 
 # Load rbenv if installed
 export PATH="${HOME}/.rbenv/bin:${PATH}"
-type -a rbenv > /dev/null && eval "$(rbenv init -)"
+type -a rbenv > /dev/null
+eval "$(rbenv init -)"
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -129,6 +130,38 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 
 export EDITOR="/Applications/Atom.app/Contents/MacOS/Atom -nw"
 
+export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
+
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 alias be="bundle exec"
 
-[ -f $PWD/code/dotfiles/.zshrc.local ] && source $PWD/code/dotfiles/.zshrc.local
+#stop autocorrecting
+alias rspec="nocorrect rspec"
+alias jest="nocorrect jest"
+unsetopt correct_all
+
+# Add timestamp
+RPROMPT="[%D{%f/%m/%y} | %D{%L:%M:%S}]"
+
+# Install local commands
+[[ -f "/Users/u0157689/code/dotfiles/local.sh" ]] && source "/Users/u0157689/code/dotfiles/local.sh"
+
+# Enable shell completion for jinborov and kubectl
+if [ $commands[v] ]; then
+  jinborov completion zsh |\
+   sed 's/custom_func/custom_funcv/g' |\
+   sed 's/__handle_reply/__handle_replyv/g' |\
+   sed 's/__handle_word/__handle_wordv/g' |\
+   sed 's/__handle_command/__handle_commandv/g' |\
+   source /dev/stdin
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/u0157689/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/u0157689/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/u0157689/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/u0157689/google-cloud-sdk/completion.zsh.inc'; fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
